@@ -5750,10 +5750,10 @@ index 5b73338..293a07f 100644
  BuildRequires: automake
  BuildRequires: sipxcommons >= %version
  BuildRequires: sipxconfig >= %version
-+BuildRequires: sipxhotdesking
++BuildRequires: sipxhotdeskingtc
  
  Requires: sipxconfig
-+Requires: sipxhotdesking
++Requires: sipxhotdeskingtc
  
  Source: %name-%version.tar.gz
  
