@@ -1,1 +1,104 @@
-Initial commit
+############
+sipXaastraTc
+############
+
+-------
+Content
+-------
+Introduction
+Note
+Features
+Source
+Requirements
+Usage
+
+------------
+Introduction
+------------
+This is an improvement of the existing sipXaastra
+
+We wish to extend the existing sipXaastra in such a way we can also provision:
+
+the functions of programmable key's on the phone
+extension pad modules
+a number of other settings
+
+
+----
+Note
+----
+Currently it is a patch, not a standalone submodule.
+We patch sipXaastra from https://github.com/dhubler/sipxecs
+
+
+--------
+Features
+--------
+Provisioning enhancements:
+
+Programmable key's    - the functions of programmable key's on the phone can be provisioned
+
+Extension pad modules - the key's on extension pad modules can be provisioned.
+
+Other settings        - more provisioning options, like dnd, backlight mode, backlight timing, etc
+
+Hotdesking            - Supports hotdesking (/ freeseating / hotelling).
+                        See: https://github.com/Telecats
+
+Hotprovisioning       - Provisioning without reboot, only in combination with sipXhotdeskingTc. 
+                        See: https://github.com/Telecats
+
+
+------
+SOURCE
+------
+https://github.com/Telecats/sipXaastraTc
+
+
+------------
+Requirements
+------------
+- Correct building sipXecs 4.6, see: https://github.com/dhubler
+- sipXaastraTc depends on sipXhotdeskingTc, so first also add sipXhotdeskingTc. See: https://github.com/Telecats
+
+
+-----
+Usage
+-----
+git submodule add https://github.com/Telecats/sipXaastraTc.git
+git submodule init
+git submodule update
+
+#
+# Warning
+#
+# The patch will allow access to your tftproot directory. This is needed so the aastra  phone's can access there new configuration. Details of patch:
+# diff --git a/sipXconfig/etc/sipxpbx/sipxconfig/sipxconfig-apache.conf b/sipXconfig/etc/sipxpbx/sipxconfig/sipxconfig-
+# +AliasMatch /[a-f,A-F,0-9]*.prov.xml "$(sipx.SIPX_VARDIR)/configserver/phone/profile/tftproot/$0"
+# -       AuthType Basic
+# -       AuthName "Restricted Area"
+# -       AuthUserFile "/etc/httpd/conf.d/provusers"
+# -       Require valid-user
+
+
+# Patch code / add the new features
+git apply sipXaastraTc/sipXaastra.patch
+
+Note: Warnings below can be ignored:
+sipXaastra.patch:67: trailing whitespace.
+				#else	
+sipXaastra.patch:5674: space before tab in indent.
+  	<option>
+sipXaastra.patch:5864: trailing whitespace.
+sipXaastra.patch:5866: trailing whitespace.
+sipXaastra.patch:5882: trailing whitespace.
+warning: squelched 7 whitespace errors
+warning: 12 lines add whitespace errors.
+
+
+#build
+Re-build to build the new features.
+
+
+
+
