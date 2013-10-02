@@ -1,6 +1,6 @@
-############
-sipXaastraTc
-############
+##########
+sipXaastra
+##########
 
 -------
 Content
@@ -45,21 +45,21 @@ Other settings        - more provisioning options, like dnd, backlight mode, bac
 Hotdesking            - Supports hotdesking (/ freeseating / hotelling).
                         See: https://github.com/Telecats
 
-Hotprovisioning       - Provisioning without reboot, only in combination with sipXhotdeskingTc. 
+Hotprovisioning       - Provisioning without reboot, only in combination with sipXhotdesking. 
                         See: https://github.com/Telecats
 
 
 ------
 SOURCE
 ------
-https://github.com/Telecats/sipXaastraTc
+https://github.com/Telecats/sipXaastra
 
 
 ------------
 Requirements
 ------------
 - Correct building sipXecs 4.6, see: https://github.com/dhubler
-- sipXaastraTc depends on sipXhotdeskingTc, so first also add sipXhotdeskingTc. See: https://github.com/Telecats
+- sipXaastra depends on sipXhotprovisioning, so first also add sipXhotprovisioning. See: https://github.com/Telecats
 
 
 -----
